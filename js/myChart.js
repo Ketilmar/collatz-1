@@ -53,10 +53,11 @@ const animation = {
 //////////////////
 ///// config /////
 
-const ctx = document.getElementById('myCanvas').getContext('2d');
+ const ctx = document.getElementById('myCanvas').getContext('2d');
 
-function newChart(){
-    const myChart = new Chart(ctx, {
+ function newChart(){
+
+     const myChart = new Chart(ctx, {
     // const config = {
         type: 'line',
         data: {
@@ -65,16 +66,17 @@ function newChart(){
             borderColor: 'red',
             borderWidth: 1,
             radius: 0,
-            data: testData,
+            data: testDataArray[0],
         },
         {
             // borderColor: Utils.CHART_COLORS.blue,
             borderColor: 'green',
             borderWidth: 1,
             radius: 1,
-            data: testData,
+            data: testDataArray[1],
+            // data: data2
         }]
-        
+
         },
         options: {
         animation,
@@ -91,7 +93,10 @@ function newChart(){
         }
         }
     });
-    console.log(myChart);
-    console.log(ctx);
-    // myChart.destroy();   // this results in endless loop
-};
+}
+    // console.log(myChart);
+    // console.log(ctx);
+    // myChart.destroy();   // with destroy() this results in endless loop. Not in this version. Then my collatz loop are able to run but no graph
+    // myChart.render();
+    // myChart.reset();
+    // myChart.update('active');

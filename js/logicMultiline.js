@@ -1,9 +1,11 @@
 // const { Chart } = require("chart.js/dist/chart");
 
+let input = document.getElementById("input")
 let testData = []
 // const myChart = [];
 let counter = 0
 let testLabel = [];
+let numberArray = [];
 const runBtn = document.getElementById("run-btn");
 
 
@@ -18,23 +20,28 @@ runBtn.addEventListener("click", (e) => {
 
 
 function collatz(number) {
-    // for (i = number; i > 1;){
-        let i = number
+    i = 3;
+    for ( ; i <= input.value; i++){    
+        
+        // let i = number
+        // numberArray.push(i);
+        let tempNumber = i;
         console.log(i);
+        console.log(number);
         let teller = counter++
-        testLabel.push(teller)
+        // testLabel.push(teller)
         // console.log("testlabel:", testLabel);
 
-        if (number > 2){
+        if (tempNumber > 2){
 
-            switch (number % 2) {
+            switch (tempNumber % 2) {
                 case 0:
-                    console.log("partall:", number);
-                    number = number/2;
+                    console.log("partall:", tempNumber);
+                    tempNumber = tempNumber/2;
                     break;
                 case 1:
-                    console.log("oddetall:",number);
-                    number = number * 3 + 1;
+                    console.log("oddetall:",tempNumber);
+                    tempNumber = tempNumber * 3 + 1;
                     break;
             }
         }
@@ -53,20 +60,21 @@ function collatz(number) {
             // return "intet nummer";
             
         }
-
-        // data = number
-        testData.push({x: teller, y: i});
-        // console.log("testdata:", testData);
-
-        collatz(number); // runs function in loop while i > 1 and push new value to graph array (testData)
+    
         
-    };
+        // data = number
+        testData.push({x: teller, y: tempNumber});
+        console.log("testdata:", testData);
+        // newChart()
+       collatz(tempNumber); // runs function in loop while i > 1 and push new value to graph array (testData)
+    }
+};
 
 
 
 
 
-let input = document.getElementById("input")
+
 
 input.addEventListener("keyup", (e) => {
     console.log(e.code);
