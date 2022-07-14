@@ -55,27 +55,28 @@ const animation = {
 
  const ctx = document.getElementById('myCanvas').getContext('2d');
 
- function newChart(){
+ // forsøk på å få inn data fra array
+//  let dataFromArray = null
+//  for (dataset in testDataArray){
+//     dataFromArray = dataset;
+//  }
 
+ function newChart(autoArray1){
+
+  console.log(autoArray1);
      const myChart = new Chart(ctx, {
     // const config = {
         type: 'line',
         data: {
-        datasets: [{
+        datasets: 
+          autoArray1
             // borderColor: Utils.CHART_COLORS.red,
-            borderColor: 'red',
-            borderWidth: 1,
-            radius: 0,
-            data: testDataArray[0],
-        },
-        {
-            // borderColor: Utils.CHART_COLORS.blue,
-            borderColor: 'green',
-            borderWidth: 1,
-            radius: 1,
-            data: testDataArray[1],
-            // data: data2
-        }]
+            // borderColor: 'red',
+            // borderWidth: 1,
+            // radius: 0,
+            // data: testDataArray,
+            // data: dataFromArray,
+        
 
         },
         options: {

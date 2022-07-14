@@ -19,11 +19,22 @@ runBtn.addEventListener("click", (e) => {
     
 });
 
-
+let autoArray1 = []
+let autoArray = {};
 runArrayBtn.addEventListener("click", (e) => {
     // testData = []; // forsøk på å fjerne data for å kunne lage ny graf over gammel
     // testLabel = [];
-    newChart();
+    for (item in testDataArray){
+        autoArray1.push(
+        autoArray = {borderColor: 'red',
+        borderWidth: 1,
+        radius: 0,
+        data: testDataArray[item],
+        });
+        console.log(autoArray);
+    }
+    newChart(autoArray1);
+    console.log(autoArray1);
     // window.myCanvas = null
     
 });
@@ -102,9 +113,6 @@ function collatz(number) {
         // // document.getElementById('myChart'),
         // config
         // });
-            
-        // PS ///
-        // jeg må fylle hele arrayet før jeg sender det til newChart kanskje
 
         // draws the chart
         // newChart();
