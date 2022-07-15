@@ -22,19 +22,19 @@ runBtn.addEventListener("click", (e) => {
 let autoArray1 = []
 let autoArray = {};
 runArrayBtn.addEventListener("click", (e) => {
-    // testData = []; // forsøk på å fjerne data for å kunne lage ny graf over gammel
-    // testLabel = [];
+
+    console.log("testDataArray", testDataArray);
     for (item in testDataArray){
         autoArray1.push(
-        autoArray = {borderColor: 'red',
+        autoArray = {borderColor: 'green',
         borderWidth: 1,
         radius: 0,
         data: testDataArray[item],
         });
-        console.log(autoArray);
+        // console.log(autoArray);
     }
     newChart(autoArray1);
-    console.log(autoArray1);
+    // console.log(autoArray1);
     // window.myCanvas = null
     
 });
@@ -42,7 +42,7 @@ runArrayBtn.addEventListener("click", (e) => {
 
 
 input.addEventListener("keyup", (e) => {
-    console.log(e.code);
+    // console.log(e.code);
     if(e.code !== "Enter") return; // guard clause to stop all others than 'enter' key
     // console.log(input.value);
     runCollatz(input.value)
@@ -55,21 +55,22 @@ input.addEventListener("keyup", (e) => {
 i = 0;
 // make array of numbers from 0 to input.value
 function runCollatz(number) {
-for ( ; i <= number; i++){ 
-    numberArray.push(i)
-    console.log(numberArray)
-}
-
-
-// console.log(numberArray);
-// sends each number from 0 to input.value, to collatz()
-for (num in numberArray){
-    if ( num > 5){
-        console.log("num in numberArray:", numberArray[num]);
-        collatz(numberArray[num])
-    
+    for ( ; i <= number; i++){ 
+        numberArray.push(i)
+        // console.log(numberArray)
     }
-}
+
+
+    // console.log(numberArray);
+    // sends each number from 6 to input.value, to collatz()
+    for (num in numberArray){
+        if ( numberArray[num] > 5){
+            // console.log("num in numberArray:", numberArray[num]);
+            // console.log(numberArray);
+            collatz(numberArray[num])
+        
+        }
+    }
 };
 
 
@@ -78,33 +79,35 @@ function collatz(number) {
     // let i = number
     // numberArray.push(i);
     // let tempNumber = i;
-    console.log("log 'number", number);
+    // console.log("log 'number", number);
     // console.log(number);
     let teller = counter++
     // testLabel.push(teller)
     // console.log("testlabel:", testLabel);
     // console.log(num);
 
-    if (number > 2){
+    
+    if (number > 2){ // skipping numbers 1 and 2
 
+        // decides if number is odd or even and does the math
         switch (number % 2) {
             case 0:
-                console.log("partall:", number);
+                // console.log("partall:", number);
                 number = number/2;
                 break;
             case 1:
-                console.log("oddetall:",number);
+                // console.log("oddetall:",number);
                 number = number * 3 + 1;
                 break;
         }
     }
 
     else {
-        console.log("no number");
+        // console.log("no number");
         // console.log(window.myCanvas);
 
         testDataArray.push(testData)
-        console.log("testDataArray", testDataArray);
+        // console.log("testDataArray", testDataArray); // This log show all arrays
         testData = [];
         counter = 0
 
@@ -129,7 +132,7 @@ function collatz(number) {
     
     // data = number
     testData.push({x: teller, y: number});
-    console.log("testdata:", testData);
+    // console.log("testdata:", testData);
     
  collatz(number); // runs function in loop while i > 1 and push new value to graph array (testData)
 };

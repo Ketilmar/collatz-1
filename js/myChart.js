@@ -15,7 +15,7 @@ for (let i = 0; i < 200; i++) {
 
 
 
-const totalDuration = 1000;
+const totalDuration = 3000;
 const delayBetweenPoints = totalDuration / data.length;
 const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
 const animation = {
@@ -36,7 +36,7 @@ const animation = {
     type: 'number',
     easing: 'linear',
     duration: delayBetweenPoints,
-    from: previousY,
+    from: NaN,
     delay(ctx) {
       if (ctx.type !== 'data' || ctx.yStarted) {
         return 0;
@@ -63,7 +63,8 @@ const animation = {
 
  function newChart(autoArray1){
 
-  console.log(autoArray1);
+  // console.log(autoArray1);
+  // console.log(previousY);
      const myChart = new Chart(ctx, {
     // const config = {
         type: 'line',
