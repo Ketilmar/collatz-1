@@ -3,59 +3,75 @@ let input = document.getElementById("input")
 let testData = []
 let testDataCounter = 0
 let testDataArray = [];
-// const myChart = [];
 let counter = 0
 let testLabel = [];
 let numberArray = [];
+let highNumber = 0;
+let highNumberInput = 0;
+let highNumberTemp = 0;
 const runBtn = document.getElementById("run-btn");
 const runArrayBtn = document.getElementById("run-array-btn");
+const numberHi = document.getElementById("number-hi");
 
 
 runBtn.addEventListener("click", (e) => {
-    // testData = []; // forsøk på å fjerne data for å kunne lage ny graf over gammel
-    // testLabel = [];
+    if (testDataArray.length !== 0) return; //guard clause to not repopulate array
+
     runCollatz(input.value);
-    // window.myCanvas = null
-    
 });
+
+
 
 let autoArray1 = []
 let autoArray = {};
 runArrayBtn.addEventListener("click", (e) => {
 
-    console.log("testDataArray", testDataArray);
+    console.log("testDataArray", testDataArray);// This log show all arrays
+    // creates the dataset object
     for (item in testDataArray){
         autoArray1.push(
-        autoArray = {borderColor: 'green',
-        borderWidth: 1,
-        radius: 0,
-        data: testDataArray[item],
-        });
+            autoArray = {
+                borderColor: 'green',
+                borderWidth: 1,
+                radius: 0,
+                data: testDataArray[item],
+            }
+        );
         // console.log(autoArray);
     }
+
+    // sends the new dataset to draw the graph
     newChart(autoArray1);
-    // console.log(autoArray1);
-    // window.myCanvas = null
-    
 });
 
 
 
 input.addEventListener("keyup", (e) => {
-    // console.log(e.code);
-    if(e.code !== "Enter") return; // guard clause to stop all others than 'enter' key
-    // console.log(input.value);
+    if(e.code !== "Enter" || testDataArray.length !== 0) return; // guard clause to stop all others than 'enter' key and not repopulate array 
+
     runCollatz(input.value)
+});
+
+
+// will try to find highest number here. And maybe longest 'string'
+numberHi.addEventListener("click", (e) => {
+    console.log(highNumber); // writes out the highest number
+    console.log("Highest number came from: " + highNumberInput + " And are: " + highNumber  );
+
+    console.log(testDataArray);
+    console.log(Math.max(...testDataArray.keys())); // test: finner høyeste key i arrayet
+    let values10 = Object.keys(testDataArray[8]); // test
+    console.log(values10);
+    console.log(Math.max(...values10) );
 });
 
 
 
 
 
-i = 0;
 // make array of numbers from 0 to input.value
 function runCollatz(number) {
-    for ( ; i <= number; i++){ 
+    for (i = 0 ; i <= number; i++){ 
         numberArray.push(i)
         // console.log(numberArray)
     }
@@ -85,6 +101,7 @@ function collatz(number) {
     // testLabel.push(teller)
     // console.log("testlabel:", testLabel);
     // console.log(num);
+    highNumberTemp = number;
 
     
     if (number > 2){ // skipping numbers 1 and 2
@@ -103,11 +120,8 @@ function collatz(number) {
     }
 
     else {
-        // console.log("no number");
-        // console.log(window.myCanvas);
 
         testDataArray.push(testData)
-        // console.log("testDataArray", testDataArray); // This log show all arrays
         testData = [];
         counter = 0
 
@@ -127,14 +141,18 @@ function collatz(number) {
         // myChart.reset();
         // myChart.update();
          return "intet nummer";
-    }
+    };
 
-    
-    // data = number
     testData.push({x: teller, y: number});
-    // console.log("testdata:", testData);
+
+    // get the highest number in collatz
+    // PS: kanskje finne en måte å gjøre dette med math.max i en event listener hvis jeg kan få det mer effektivt og kan gjøre det på request.
+    if (number > highNumber) {
+        highNumber = number
+        highNumberInput =  numberArray[num]; // get the starting number from numberArray[num] in runCollatz() function
+    };
     
- collatz(number); // runs function in loop while i > 1 and push new value to graph array (testData)
-};
+ collatz(number); // runs function in loop while i > 1 and push new value to value array (testData)
+}; // end collatz()
 
 

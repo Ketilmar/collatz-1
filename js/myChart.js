@@ -81,18 +81,18 @@ const animation = {
 
         },
         options: {
-        animation,
-        interaction: {
-            intersect: false
-        },
-        plugins: {
-            legend: false
-        },
-        scales: {
-            x: {
-            type: 'linear'
-            }
-        }
+          animation,
+          interaction: {
+              intersect: false
+          },
+          plugins: {
+              legend: false
+          },
+          scales: {
+              x: {
+              type: 'linear'
+              }
+          }
         }
     });
 }
