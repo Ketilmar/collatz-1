@@ -81,12 +81,19 @@ const animation = {
 
         },
         options: {
+          events: ['click'],
           animation,
           interaction: {
-              intersect: false
+              intersect: false,
+              mode: 'dataset', // shows all points on line
           },
           plugins: {
-              legend: false
+              legend: false,
+              tooltip: {
+                callbacks: {
+                  
+                }
+              }
           },
           scales: {
               x: {
@@ -96,6 +103,7 @@ const animation = {
         }
     });
 }
+
     // console.log(myChart);
     // console.log(ctx);
     // myChart.destroy();   // with destroy() this results in endless loop. Not in this version. Then my collatz loop are able to run but no graph
