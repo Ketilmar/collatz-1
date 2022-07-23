@@ -15,3 +15,9 @@
     
 }
 
+
+.chart-wrapper > div > div {
+    height: 30%;
+    overflow:   auto;
+    /* overflow-x: hidden; */
+}

@@ -10,8 +10,7 @@ let highNumber = 0;
 let highNumberInput = 0;
 let steps = 0;
 const runBtn = document.getElementById("run-btn");
-const runArrayBtn = document.getElementById("run-graph");
-const numberHi = document.getElementById("number-hi");
+const showChart = document.getElementById("run-graph");
 const singleCb = document.getElementById("single-cb");
 
 const task1Output = document.getElementById("task1-output");
@@ -29,6 +28,8 @@ runBtn.addEventListener("mouseup", (e) => {
 
     runCollatz(input.value);
 
+    dataLogging();
+
 });
 
 
@@ -42,32 +43,22 @@ input.addEventListener("keyup", (e) => {
 
     runCollatz(input.value);
 
+    dataLogging();
+
 });
 
 
 
 
 
-runArrayBtn.addEventListener("mouseup", (e) => {
+showChart.addEventListener("mouseup", (e) => {
 
     console.log("collatzArrayArray", collatzArrayArray);// This log show all collatz data
 
     chartData()
+
     // sends the new dataset to draw the graph
     newChart(configArray);
-});
-
-
-
-
-
-// get the highest number, the number it started from and how many step it took.
-numberHi.addEventListener("mouseup", () => {
-
-    // console.log("Highest number came from: " + highNumberInput + ". And is: " + highNumber + ". This took " + (steps - 1) + " steps."  );
-
-    dataLogging();
-
 });
 
 
@@ -94,7 +85,7 @@ function chartData() {
             configObj = {
                 borderColor: `#${addRandomColor()}`,
                 borderWidth: 1,
-                radius: 0,
+                radius: 1,
                 data: collatzArrayArray[item],
             }
         );
