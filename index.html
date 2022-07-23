@@ -4,23 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script type="text/javascript" src="js/logicMultiline.js" defer></script> -->
     <script type="text/javascript" src="js/logic2.js" defer></script>
     <script type="text/javascript" src="js/myChart.js" defer></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" defer></script>
+    <link rel="stylesheet" href="css\style.css">
     <!-- <script type="text/javascript" src="node_modules\chart.js\dist\chart.js"></script> -->
-    <!-- <script src="node_modules/chart.js/helpers/helpers.esm.js" defer></script> -->
     <title>collatz-1</title>
 </head>
 <body>
     <div class="input-wrap">
         <input id="input" type="text" autofocus >
-        <input type="checkbox" id="single-cb" name="single-cb" value="Initial value" checked="yes">
-        <label for="single-cb">Run single number</label>
+        <input type="checkbox" id="single-cb" name="single-cb">
+        <label for="single-cb">Run from 1 to user input</label>
         <button id="run-btn">Run</button>
-        <button id="run-array-btn">Run Array</button>
+        <button id="run-graph">Show Graph</button>
         <button id="number-hi" >Highest number</button>
         
+    </div>
+    <div class="output-wrap">
+        <div>
+                <p id="task1-output">test output</p>
+                <p id="all-nr">All numbers</p>
+                <p id="most-steps">Most steps</p>
+                <p id="high-nr-total-init">high nr total init</p>
+                
+        </div>
+
     </div>
 
     <div class="chart-wrapper">

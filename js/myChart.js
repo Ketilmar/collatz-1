@@ -15,7 +15,7 @@ for (let i = 0; i < 200; i++) {
 
 
 
-const totalDuration = 3000;
+const totalDuration = 5000;
 const delayBetweenPoints = totalDuration / data.length;
 const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
 const animation = {
@@ -53,13 +53,7 @@ const animation = {
 //////////////////
 ///// config /////
 
- const ctx = document.getElementById('myCanvas').getContext('2d');
-
- // forsøk på å få inn data fra array
-//  let dataFromArray = null
-//  for (dataset in testDataArray){
-//     dataFromArray = dataset;
-//  }
+const ctx = document.getElementById('myCanvas').getContext('2d');
 
  function newChart(autoArray1){
 
@@ -102,11 +96,4 @@ const animation = {
           }
         }
     });
-}
-
-    // console.log(myChart);
-    // console.log(ctx);
-    // myChart.destroy();   // with destroy() this results in endless loop. Not in this version. Then my collatz loop are able to run but no graph
-    // myChart.render();
-    // myChart.reset();
-    // myChart.update('active');
+};
