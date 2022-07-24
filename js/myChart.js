@@ -76,6 +76,7 @@ const ctx = document.getElementById('myCanvas').getContext('2d');
 
         },
         options: {
+          responsive: true,
           events: ['click'],
           animation,
           interaction: {
@@ -89,7 +90,7 @@ const ctx = document.getElementById('myCanvas').getContext('2d');
                 callbacks: {
                   
                 },
-                caretSize: 3,
+                caretSize: 0,
                 external: externalTooltipHandler
               }
           },
@@ -114,6 +115,7 @@ const getOrCreateTooltip = (chart) => {
 
   if (!tooltipEl) {
     tooltipEl = document.createElement('div');
+    tooltipEl.setAttribute('id', 'exTooltip');
     tooltipEl.style.background = 'rgba(0, 0, 0, 0.7)';
     tooltipEl.style.borderRadius = '3px';
     tooltipEl.style.color = 'white';
@@ -122,7 +124,10 @@ const getOrCreateTooltip = (chart) => {
     tooltipEl.style.position = 'absolute';
     tooltipEl.style.transform = 'translate(-50%, 0)';
     tooltipEl.style.transition = 'all .1s ease';
-    // tooltipEl.style.overflow =   'scroll'; // forsøker å få til scrolling her. Den er stuck
+    tooltipEl.style.overflow =   'scroll';
+    // tooltipEl.style.height = '30%';
+    // tooltipEl.style.top = '25%';
+    // tooltipEl.style.left = '80%';
     
 
     const table = document.createElement('table');
@@ -210,8 +215,11 @@ const externalTooltipHandler = (context) => {
 
   // Display, position, and set styles for font
   tooltipEl.style.opacity = 1;
-  tooltipEl.style.left = positionX + tooltip.caretX + 'px';
-  tooltipEl.style.top = positionY + tooltip.caretY + 'px';
+  // tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+  // tooltipEl.style.top = positionY + tooltip.caretY + 'px';
+  tooltipEl.style.height = '40%';
+  tooltipEl.style.top = '32%';
+  tooltipEl.style.left = '80%';
   tooltipEl.style.font = tooltip.options.bodyFont.string;
   tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
   

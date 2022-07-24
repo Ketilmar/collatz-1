@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="js/logic2.js" defer></script>
+    <script type="text/javascript" src="js/logic.js" defer></script>
     <script type="text/javascript" src="js/myChart.js" defer></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js" defer></script>
     <link rel="stylesheet" href="css\style.css">
@@ -15,28 +15,43 @@
     <div class="input-wrap">
         <input id="input" type="text" autofocus >
         <input type="checkbox" id="single-cb" name="single-cb">
-        <label for="single-cb">Run from 1 to user input</label>
+        <label for="single-cb">Run All</label>
         <button id="run-btn">Run</button>
         <button id="run-graph">Show Chart</button>
         
     </div>
     <div class="output-wrap">
-        <div>
-                <p id="task1-output">test output</p>
-                <p id="all-nr">All numbers</p>
-                <p id="most-steps">Most steps</p>
-                <p id="high-nr-total-init">high nr total init</p>
-                
+        <div class="oppgave1">
+            <div>"Utfører Collatz funksjonen på tallet: </div>
+                    <p id="output1"></p>
+            <div> Antall steg før tallet endte på 1: </div>
+                    <p id="output2"></p>
+            <div>Høyeste tall nådd i sekvensen: </div>
+                    <p id="output3"></p>
+            <div>Antall steg til høyeste verdi: </div>
+                <p id="output4"></p>
         </div>
+        <div class="oppgave2">
+            <div>Utfører Collatz funksjonen på alle tall fra 1 til: </div>
+                <p id="output5"></p>
+            <div>Tallet som nådde flest steg var: </div>
+                <p id="output6"></p>
+            <div>med antall steg: </div>
+                <p id="output7"></p>
+            <div>Tallet som nådde høyeste verdi var: </div>
+                <p id="output8"></p>
+            <div>som nådde en topp på: </div>
+                <p id="output9"></p>
+        </div>
+        
+                
+        
 
     </div>
 
     <div class="chart-wrapper">
         <div>
             <canvas id="myCanvas"></canvas>
-        </div>
-        <div class="tooltip">
-
         </div>
 
     </div>

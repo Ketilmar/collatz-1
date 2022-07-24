@@ -3,21 +3,121 @@
 }
 
 .output-wrap {
+    display: grid;
+    grid-template-columns: auto auto;
     background: lightcyan;
+    height: 15%;
+}
+
+.oppgave1 {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    justify-items: end;
+    align-items: center;
+}
+
+.oppgave1 > div {
+    font-size: large;
+    margin: 10px 10px 0 0;
+    
+}
+
+#output1 {
+    width: 2em;
+    margin: 5px 5px;
+    font-weight: 400;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#output2 {
+    width: 2em;
+    margin: 5px 5px;
+    font-weight: 400;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#output3 {
+    width: 2em;
+    margin: 5px 5px;
+    font-weight: 400;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#output4 {
+    width: 2em;
+    margin: 5px 5px;
+    font-weight: 400;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 
+.oppgave2 {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: start;
+    justify-items: end;
+    align-items: center;
+}
+
+
+.oppgave2 > div {
+    font-size: large;
+    margin: 10px 10px 0 0;
+}
+
+
+#output5 {
+    width: 2em;
+    margin: 5px 5px;
+    font-weight: 400;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#output6 {
+    width: 2em;
+    margin: 5px 5px;
+    font-weight: 400;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#output7 {
+    width: 2em;
+    margin: 5px 5px;
+    font-weight: 400;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#output8 {
+    width: 2em;
+    margin: 5px 5px;
+    font-weight: 400;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#output9 {
+    width: 2em;
+    margin: 5px 5px;
+    font-weight: 400;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/*
 .output-wrap > div {
-    /* display: grid;
-    grid-template-columns: auto auto auto auto; */
     width: 100%;
-    height: 100%em;
+    height: 100%;
     
+}
+*/
+
+
+.chart-wrapper {
+    /* height: 100%; */
 }
 
 
 .chart-wrapper > div > div {
-    height: 30%;
-    overflow:   auto;
+    /* height: 30%; */
+    /* overflow:   auto; */
     /* overflow-x: hidden; */
 }

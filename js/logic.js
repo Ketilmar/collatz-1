@@ -11,6 +11,15 @@ const showMostSteps = document.getElementById("most-steps");
 const showHighNumberTotalInit = document.getElementById("high-nr-total-init");
 const showHighNumberTotal = document.getElementById("high-nr-total");
 
+const output1 = document.getElementById('output1');
+const output2 = document.getElementById('output2');
+const output3 = document.getElementById('output3');
+const output4 = document.getElementById('output4');
+const output5 = document.getElementById('output5');
+const output6 = document.getElementById('output6');
+const output7 = document.getElementById('output7');
+const output8 = document.getElementById('output8');
+const output9 = document.getElementById('output9');
 
 
 runBtn.addEventListener("mouseup", (e) => {
@@ -117,7 +126,10 @@ function dataLogging(){
 
     // Gets the sequence with most step and initiating number
     let longestSequence = collatzArrayArray.reduce((previous, current) => previous.length > current.length ? previous : current);
-    showMostSteps.textContent = "Tallet som nådde flest steg var " + longestSequence[0].y + " med " + (longestSequence.length - 1);
+    //showMostSteps.textContent = "Tallet som nådde flest steg var " + longestSequence[0].y + " med " + (longestSequence.length - 1);
+
+    output6.textContent = longestSequence[0].y;
+    output7.textContent = (longestSequence.length - 1);
 
     collatzArrayArray.forEach((e) => {
 
@@ -131,11 +143,16 @@ function dataLogging(){
         // this gets the start number, highest value reached, steps to highest value and total steps of each "hailstone sequence"
         //console.log("Starting nr: ", e[0].y, "highest nr: ", nyTestMetode1.y, "Steps to highest nr: ", nyTestMetode1.x, "Total steps: ", (e.length - 1));
 
-        // complete html output for task 1 ( added "Antall steg til høyeste tall"). Choosing to use innerHTML for convenience, despite security issues, since only numbers will get this far
-        task1Output.innerHTML = "Utfører Collatz funksjonen på tallet: " + e[0].y + ".<br> Antall steg før tallet endte på 1: " +  (e.length - 1) + ".<br> Høyeste tall nådd i sekvensen: " + nyTestMetode1.y + ".<br> Antall steg til høyeste tall: " + nyTestMetode1.x 
+        // html output for task 1 ( added "Antall steg til høyeste tall")
+        output1.textContent = e[0].y;
+        output2.textContent = (e.length - 1);
+        output4.textContent = nyTestMetode1.x ;
 
         if (!singleCb.checked){
-            showHighNumberTotalInit.textContent = "Høyeste verdi nådd i sekvensen: " + nyTestMetode1.y;
+            output3.textContent = nyTestMetode1.y;
+            output5.textContent = '--';
+            output8.textContent = '--';
+            output9.textContent = '--';
         }
         
 
@@ -143,8 +160,11 @@ function dataLogging(){
 
             nyTestMetode1Prev = nyTestMetode1.y;
 
-            showAllNumber.textContent = "Utfører Collatz funksjonen på alle tall fra 1 til " + input.value;
-            showHighNumberTotalInit.textContent = "Tallet som nådde høyeste verdi var " + highNumberInput  + " som nådde en topp på " + highNumber
+            output3.textContent = '--'
+            output5.textContent = input.value;
+            output8.textContent = highNumberInput;
+            output9.textContent = nyTestMetode1Prev
+            // showHighNumberTotalInit.textContent = "Tallet som nådde høyeste verdi var " + highNumberInput  + " som nådde en topp på " + highNumber
         }
 
         // this saves the values as an array (attempt to use Math.max on array to get highest number. This fails with error message)
