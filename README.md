@@ -1,4 +1,4 @@
 Sommer oppgave for level 3 kodehode.
 
-Begynnte i utgangspunktet å lage en mer fancy frontend for tallene det ble spurt om i oppgaven. Fant etterhvert ut at
-jeg burde følge oppgave teksten og lage html elementene som beskrevet i oppgave. Har lagt til noen verdier + mulighet for graf.
+Runs the collatz conjecture on the input number or, if selected, on every number from 1 thru input number.
+With possibilities to show all collatz sequences as an graph. (Graphing is slow on large datasets with 'Run All' selected)

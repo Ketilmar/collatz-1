@@ -15,7 +15,7 @@ for (let i = 0; i < 200; i++) {
 
 
 
-const totalDuration = 2000;
+const totalDuration = 5000;
 const delayBetweenPoints = totalDuration / data.length;
 const previousY = (ctx) => ctx.index === 0 ? ctx.chart.scales.y.getPixelForValue(100) : ctx.chart.getDatasetMeta(ctx.datasetIndex).data[ctx.index - 1].getProps(['y'], true).y;
 const animation = {
@@ -81,7 +81,7 @@ const ctx = document.getElementById('myCanvas').getContext('2d');
           animation,
           interaction: {
               intersect: false,
-              mode: 'dataset', // shows all points on line
+              mode: 'dataset', // shows all points on one line
           },
           plugins: {
               legend: false,
