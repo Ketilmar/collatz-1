@@ -200,7 +200,7 @@ function collatz(number) {
         case 0:
             number = number/2;
             break;
-            
+
         case 1:
             number = number * 3 + 1;
             break;
